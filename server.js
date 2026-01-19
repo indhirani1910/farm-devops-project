@@ -1,10 +1,18 @@
+// server.js
 const express = require('express');
-const app= express();
+const app = express();
+const path = require('path');
 
-app.get('/', (req, res) => {
-    res.send('Cloud-Based Farm Management System - DevOps project');
+// Serve static files from 'public' folder
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Optional API route for frontend JS
+app.get('/api/status', (req, res) => {
+  res.send("✅ Farm status: All crops are healthy!");
 });
 
-app.listen(3000, () => {
-    console.log('Server is running on port 3000');
+// Start server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
