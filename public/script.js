@@ -1,4 +1,2 @@
-function showMessage() {
-  document.getElementById("result").innerHTML =
-    "✅ Farm Status: Crops are healthy and irrigation is active!";
-}
+// Simple JS demo
+console.log("Farm Management System Loaded");
