@@ -1,33 +1,12 @@
 const express = require("express");
-const path = require("path");
-
 const app = express();
-const PORT = process.env.PORT || 3000;
 
-// Serve static frontend files from public folder
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static("public"));
 
-// Default route → Dashboard
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
-});
+app.get("/", (req,res)=> res.sendFile(__dirname+"/public/login.html"));
+app.get("/register", (req,res)=> res.sendFile(__dirname+"/public/register.html"));
+app.get("/home", (req,res)=> res.sendFile(__dirname+"/public/index.html"));
+app.get("/farmers", (req,res)=> res.sendFile(__dirname+"/public/farmers.html"));
+app.get("/crops", (req,res)=> res.sendFile(__dirname+"/public/crops.html"));
 
-// Farmers page
-app.get("/farmers", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "farmers.html"));
-});
-
-// Login page
-app.get("/login", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "login.html"));
-});
-
-// Register page
-app.get("/register", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "register.html"));
-});
-
-// Start Server
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+app.listen(3000, ()=> console.log("Server running on port 3000"));

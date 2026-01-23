@@ -21,4 +21,8 @@ jobs:
         run: npm install
 
       - name: Run application test
+<<<<<<< HEAD
         run: echo "Build Success ✅"
+=======
+        run: echo "Build Success "
+>>>>>>> 838fa3b (Add frontend pages and styles)

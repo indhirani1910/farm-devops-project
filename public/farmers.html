@@ -1,39 +1,66 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Farmers List</title>
-  <link rel="stylesheet" href="style.css">
+<title>Farmers</title>
+<link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="farmers-page">
 
 <header>
-  <h1>Farmers Data</h1>
-  <nav>
-    <a href="index.html">Dashboard</a>
-    <a href="farmers.html">Farmers</a>
-  </nav>
+  <h1>Farmers Management</h1>
 </header>
 
-<table>
-  <tr>
-    <th>ID</th>
-    <th>Name</th>
-    <th>Village</th>
-    <th>Crop</th>
-  </tr>
-  <tr>
-    <td>1</td>
-    <td>Ravi</td>
-    <td>Madurai</td>
-    <td>Rice</td>
-  </tr>
-  <tr>
-    <td>2</td>
-    <td>Kumar</td>
-    <td>Trichy</td>
-    <td>Wheat</td>
-  </tr>
-</table>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="farmers.html">Farmers</a>
+  <a href="crops.html">Crops</a>
+  <a href="#" onclick="logout()">Logout</a>
+</nav>
+
+<section class="content">
+  <h2>Registered Farmers</h2>
+
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Location</th>
+      <th>Crop Type</th>
+    </tr>
+    <tr>
+      <td>F001</td>
+      <td>Ravi</td>
+      <td>Madurai</td>
+      <td>Rice</td>
+    </tr>
+    
+    <tr>
+      <td>F002</td>
+      <td>Priya</td>
+      <td>Salem</td>
+      <td>Vegetables</td>
+    </tr>
+    <tr>
+      <td>F003</td>
+      <td>kala</td>
+      <td>chennai</td>
+      <td>Wheat</td>
+    </tr>
+    <tr>
+      <td>F004</td>
+      <td>Selvi</td>
+      <td>Selam</td>
+      <td>Coffee</td>
+    </tr>
+    <tr>
+      <td>F005</td>
+      <td>Ram</td>
+      <td>Tricy</td>
+      <td>Cotton</td>
+    </tr>
+  </table>
+
+</section>
 
 </body>
 </html>

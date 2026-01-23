@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Login</title>
-  <link rel="stylesheet" href="style.css">
+<title>Login</title>
+<link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="login-page">
+
 <div class="form-box">
-  <h2>Login</h2>
-  <input type="text" placeholder="Username">
-  <input type="password" placeholder="Password">
-  <button>Login</button>
+  <h2>Farm Login</h2>
+
+  <label>Username</label>
+  <input type="text" placeholder="Enter username">
+
+  <label>Password</label>
+  <input type="password" placeholder="Enter password">
+
+  <button onclick="location.href='/home'">Login</button>
+
+  <p style="text-align:center;">New user?
+    <a href="register.html">Register</a>
+  </p>
 </div>
+
 </body>
 </html>
