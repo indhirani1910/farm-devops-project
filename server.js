@@ -1,18 +1,33 @@
-// server.js
-const express = require('express');
+const express = require("express");
+const path = require("path");
+
 const app = express();
-const path = require('path');
+const PORT = process.env.PORT || 3000;
 
-// Serve static files from 'public' folder
-app.use(express.static(path.join(__dirname, 'public')));
+// Serve static frontend files from public folder
+app.use(express.static(path.join(__dirname, "public")));
 
-// Optional API route for frontend JS
-app.get('/api/status', (req, res) => {
-  res.send("✅ Farm status: All crops are healthy!");
+// Default route → Dashboard
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
-// Start server
-const PORT = process.env.PORT || 3000;
+// Farmers page
+app.get("/farmers", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "farmers.html"));
+});
+
+// Login page
+app.get("/login", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "login.html"));
+});
+
+// Register page
+app.get("/register", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "register.html"));
+});
+
+// Start Server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
