@@ -41,7 +41,7 @@ function registerUser() {
 
     // Redirect to login after 1.5s
     setTimeout(() => {
-        window.location.href = "";
+        window.location.href = "/home";
     }, 1500);
 }
 
