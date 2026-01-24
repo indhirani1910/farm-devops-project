@@ -22,7 +22,7 @@ function checkLogin() {
         // Redirect to dashboard after 1 second
         setTimeout(() => {
             window.location.href = "index.html";
-        }, 1000);
+        }, 800);
     } else {
         msg.style.color = "red";
         msg.innerText = "Wrong username or password!";
