@@ -22,30 +22,26 @@ function checkLogin() {
   }
 }
 function registerUser() {
-    const fullname = document.getElementById("fullname").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const username = document.getElementById("username").value.trim();
-    const password = document.getElementById("password").value.trim();
+    const fullname = document.getElementById("fullname").value;
+    const email = document.getElementById("email").value;
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
     const msg = document.getElementById("msg");
 
+    // Simple validation
     if(!fullname || !email || !username || !password){
         msg.style.color = "red";
         msg.innerText = "Please fill all fields!";
         return;
     }
 
-    // 1️⃣ Save user in localStorage
-    let users = JSON.parse(localStorage.getItem("users") || "[]");
-    users.push({ fullname, email, username, password });
-    localStorage.setItem("users", JSON.stringify(users));
-
-    // 2️⃣ Success message
+    // Success message
     msg.style.color = "green";
-    msg.innerText = "Registration Successful! Redirecting to dashboard...";
+    msg.innerText = "Registration Successful! ";
 
-    // 3️⃣ Redirect to dashboard/index page after 1.5 sec
+    // Redirect to login after 1.5s
     setTimeout(() => {
-        window.location.href = "index.html"; // or /home if using server route
+        window.location.href = "";
     }, 1500);
 }
 
