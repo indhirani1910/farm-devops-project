@@ -1,29 +1,110 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Register</title>
-<link rel="stylesheet" href="style.css">
+    <title>User Registration</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('images/register-bg.jpg') no-repeat center/cover;
+            background-size: cover;
+        }
+        .reg-box {
+            width: 400px;
+            margin: 80px auto;
+            background: rgba(255,255,255,0.95);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+        .reg-box h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .reg-box label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .reg-box input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .reg-box button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .reg-box button:hover {
+            background-color: #219150;
+        }
+        #msg {
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
 </head>
-<body class="register-page">
+<body>
 
 <div class="reg-box">
-  <h2>User Registration</h2>
+    <h2>User Registration</h2>
 
-  <label>Full Name</label>
-  <input type="text" id ="fullname">
+    <label>Full Name</label>
+    <input type="text" id="fullname" placeholder="Enter full name">
 
-  <label>Email</label>
-  <input type="email" id="email">
+    <label>Email</label>
+    <input type="email" id="email" placeholder="Enter email">
 
-  <label>Username</label>
-  <input type="text" id="username">
+    <label>Username</label>
+    <input type="text" id="username" placeholder="Enter username">
 
-  <label>Password</label>
-  <input type="password" id="password">
-  <p id="msg" style="text-align:center; font-weight:bold;"></p>
+    <label>Password</label>
+    <input type="password" id="password" placeholder="Enter password">
 
-  <button onclick="registerUser()">Register</button>
+    <button onclick="registerUser()">Register</button>
+
+    <p id="msg"></p>
 </div>
-<script src="script.js"></script>
+
+<script>
+function registerUser() {
+    const fullname = document.getElementById("fullname").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const msg = document.getElementById("msg");
+
+    if(!fullname || !email || !username || !password){
+        msg.style.color = "red";
+        msg.innerText = "Please fill all fields!";
+        return;
+    }
+
+    // Save user to localStorage
+    let users = JSON.parse(localStorage.getItem("users") || "[]");
+    users.push({ fullname, email, username, password });
+    localStorage.setItem("users", JSON.stringify(users));
+
+    // Show success message
+    msg.style.color = "green";
+    msg.innerText = "Registration Successful! Redirecting to dashboard...";
+
+    // Redirect to dashboard/index page
+    setTimeout(() => {
+        window.location.href = "index.html"; // change to "/home" if using server route
+    }, 1500);
+}
+</script>
+
 </body>
 </html>

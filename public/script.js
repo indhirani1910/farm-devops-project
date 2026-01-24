@@ -21,27 +21,32 @@ function checkLogin() {
       msg.innerText = "Wrong username or password!";
   }
 }
-
 function registerUser() {
-    const fullname = document.getElementById("fullname").value;
-    const email = document.getElementById("email").value;
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
+    const fullname = document.getElementById("fullname").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
     const msg = document.getElementById("msg");
 
-    // Simple validation
     if(!fullname || !email || !username || !password){
         msg.style.color = "red";
         msg.innerText = "Please fill all fields!";
         return;
     }
 
-    // Success message
-    msg.style.color = "green";
-    msg.innerText = "Registration Successful! Redirecting to login...";
+    // 1️⃣ Save user in localStorage
+    let users = JSON.parse(localStorage.getItem("users") || "[]");
+    users.push({ fullname, email, username, password });
+    localStorage.setItem("users", JSON.stringify(users));
 
-    // Redirect to login after 1.5s
+    // 2️⃣ Success message
+    msg.style.color = "green";
+    msg.innerText = "Registration Successful! Redirecting to dashboard...";
+
+    // 3️⃣ Redirect to dashboard/index page after 1.5 sec
     setTimeout(() => {
-        window.location.href = "/";
+        window.location.href = "index.html"; // or /home if using server route
     }, 1500);
 }
+
+
