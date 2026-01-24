@@ -21,7 +21,7 @@ function checkLogin() {
         msg.innerText = "Login Successful!";
         // Redirect to dashboard after 1 second
         setTimeout(() => {
-            window.location.href = "/home";
+            window.location.href = "index.html";
         }, 1000);
     } else {
         msg.style.color = "red";
