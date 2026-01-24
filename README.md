@@ -1,4 +1,4 @@
-# Cloud Based Farm Management System
+# DevOps For Cloud-Based Farm Management System
 
 This is a simple Cloud Based Farm Management System developed as an internship project.  
 The project is built using HTML, CSS, JavaScript for frontend and Node.js with Express for backend routing.
